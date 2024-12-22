@@ -1,0 +1,40 @@
+<div>
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <a href="#" class="navbar-brand">bezKoder</a>
+    <div class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a routerLink="/tutorials" class="nav-link">Tutorials</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/add" class="nav-link">Add</a>
+      </li>
+    </div>
+  </nav>
+
+  <div class="container mt-3">
+    <h2>{{ title }}</h2>
+    <div *ngIf="tutorials.length > 0; else noTutorials">
+      <h3>All Tutorials</h3>
+      <ul class="list-group">
+        <li *ngFor="let tutorial of tutorials" class="list-group-item">
+          <h5>{{ tutorial.title }}</h5>
+          <p>{{ tutorial.description }}</p>
+          <div>
+            <button class="btn btn-primary" (click)="selectTutorial(tutorial)">View</button>
+            <button class="btn btn-danger" (click)="tutorial.id !== undefined && deleteTutorial(tutorial.id)">Delete</button>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <ng-template #noTutorials>
+      <p>No tutorials available. Please add one.</p>
+    </ng-template>
+
+    <div *ngIf="currentTutorial" class="mt-4">
+      <h3>Details of "{{ currentTutorial.title }}"</h3>
+      <p><strong>Description:</strong> {{ currentTutorial.description }}</p>
+      <p><strong>Published:</strong> {{ currentTutorial.published ? 'Yes' : 'No' }}</p>
+    </div>
+  </div>
+</div>
