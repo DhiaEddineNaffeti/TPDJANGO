@@ -16,5 +16,3 @@ Une application Django pour [description de l'application].
 - **Frontend** : React, TypeScript
 - **Backend** : Django
 
-## Contribution
-Les contributions sont les bienvenues ! Veuillez forker le dépôt et soumettre une pull request.
